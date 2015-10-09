@@ -4,8 +4,8 @@ package com.epam.SE2.task5;
  * Created by Vesdet on 09.10.2015.
  */
 public enum Subject {
-    MATHEMATIC,
-    PHISIC,
+    MATHEMATICS,
+    PHYSICS,
     HISTORY,
     CHEMISTRY,
     RUSSIAN;

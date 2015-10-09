@@ -10,24 +10,29 @@ import static com.epam.SE2.task5.Subject.*;
 /**
  * Created by Vesdet on 09.10.2015.
  */
-public final class Group {
+public final class Group<T> {
     private static List<Group> groups = new ArrayList<>();
     private Subject subject;
-    private Map list = new HashMap<>();
-    private boolean marksIsInteger;
+    private Map<String, T> list = new HashMap<>();
 
-    public Group(Subject subject) {
+    private Group(Subject subject) {
         this.subject = subject;
-        marksIsInteger = subject.isInteger();
         groups.add(this);
     }
 
-    public void addStudent(Student student, double mark) {
-        if (marksIsInteger) {
-            list.put(student.getName(), (int) mark);
-        } else {
-            list.put(student.getName(), mark);
+    public static Group newGroup(Subject subject){
+        if (subject.isInteger()){
+            Group<Integer> group = new Group<>(subject);
+            return group;
         }
+        else{
+            Group<Double> group = new Group<>(subject);
+            return group;
+        }
+    }
+
+    public void addStudent(Student student, T mark) {
+        list.put(student.getName(), mark);
     }
 
     public Map getList() {
@@ -48,23 +53,20 @@ public final class Group {
 
     public static void searchStudent(Student student) {
         System.out.println("Name: " + student.getName() + "    Age: " + student.getAge());
-        double max = 0, x;
-        int y;
+        double x, max = 0;
         Subject subject = CHEMISTRY;
         for (Group i : groups) {
-            for (Object j : i.list.keySet()) {
-                if (j == student.getName()) {
-                    if (i.subject.isInteger()) {
-                        y = (int) i.list.get(j);
-                        if (y>max) subject = i.subject;
-                        max = y > max ? y : max;
-                    } else {
-                        x = (double) i.list.get(j);
-                        if (x>max) subject = i.subject;
-                        max = x > max ? x : max;
-                    }
-                    System.out.println(i.subject + "    " + i.list.get(j));
+            if (i.list.get(student.getName()) != null) {
+                if (i.subject.isInteger()) {
+                    x = (int) i.list.get(student.getName());
+                } else {
+                    x = (double) i.list.get(student.getName());
                 }
+                if (x > max) {
+                    subject = i.subject;
+                    max = x;
+                }
+                System.out.println(i.subject + "    " + i.list.get(student.getName()));
             }
         }
         System.out.println("Max mark: " + subject + "   " + max);
