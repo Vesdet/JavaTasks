@@ -22,18 +22,6 @@ public class CrazyLogger {
         Formatter formatter = new Formatter();
         formatter.format("%td-%tm-%tY:%tH-%tM-%tS--%s\n",c,c,c,c,c,c,str);
         log.append(formatter);
-        /*if (c.get(DAY_OF_MONTH)/10 == 0) log.append(String.format("0%d-", c.get(DAY_OF_MONTH)));
-        else log.append(String.format("%d-", c.get(DAY_OF_MONTH)));
-        if (c.get(MONTH)/10 == 0) log.append(String.format("0%d-", c.get(MONTH)));
-        else log.append(String.format("%d-", c.get(MONTH)));
-        log.append(String.format("%d:", c.get(YEAR)));
-        if (c.get(HOUR)/10 == 0) log.append(String.format("0%d-", c.get(HOUR)));
-        else log.append(String.format("%d-", c.get(HOUR)));
-        if (c.get(MINUTE)/10 == 0) log.append(String.format("0%d-", c.get(MINUTE)));
-        else log.append(String.format("%d-", c.get(MINUTE)));
-        if (c.get(SECOND)/10 == 0) log.append(String.format("0%d--", c.get(SECOND)));
-        else log.append(String.format("%d--", c.get(SECOND)));
-        log.append(String.format("%s\n", str));*/
     }
 
     public String searchMessage(String str){
