@@ -19,6 +19,6 @@ public class Task_1 {
         String need = logger.searchMessage("ort");
         System.out.println(need);
 
-        //System.out.println(logger);
+        System.out.println(logger);
     }
 }

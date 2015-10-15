@@ -1,9 +1,7 @@
 package com.epam.SE3.task1;
 
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.Formatter;
 
 import static java.util.Calendar.*;
 
@@ -21,7 +19,10 @@ public class CrazyLogger {
 
     public void addNewMessage(String str){
         Calendar c = getInstance();
-        if (c.get(DAY_OF_MONTH)/10 == 0) log.append(String.format("0%d-", c.get(DAY_OF_MONTH)));
+        Formatter formatter = new Formatter();
+        formatter.format("%td-%tm-%tY:%tH-%tM-%tS--%s\n",c,c,c,c,c,c,str);
+        log.append(formatter);
+        /*if (c.get(DAY_OF_MONTH)/10 == 0) log.append(String.format("0%d-", c.get(DAY_OF_MONTH)));
         else log.append(String.format("%d-", c.get(DAY_OF_MONTH)));
         if (c.get(MONTH)/10 == 0) log.append(String.format("0%d-", c.get(MONTH)));
         else log.append(String.format("%d-", c.get(MONTH)));
@@ -32,7 +33,7 @@ public class CrazyLogger {
         else log.append(String.format("%d-", c.get(MINUTE)));
         if (c.get(SECOND)/10 == 0) log.append(String.format("0%d--", c.get(SECOND)));
         else log.append(String.format("%d--", c.get(SECOND)));
-        log.append(String.format("%s\n", str));
+        log.append(String.format("%s\n", str));*/
     }
 
     public String searchMessage(String str){
