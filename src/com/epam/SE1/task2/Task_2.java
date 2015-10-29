@@ -1,4 +1,6 @@
 package com.epam.SE1.task2;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -6,17 +8,21 @@ import java.util.Scanner;
  */
 public class Task_2 {
     public static void main(String[] args) {
-        double e;
+        double num = 0;
         int i = 0;
 
         double a;
-        Scanner in = new Scanner(System.in);
-        e = in.nextDouble();
+        try (Scanner in = new Scanner(System.in)) {
+            num = in.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong input, try again.");
+            return;
+        }
         do {
             i++;
             a = 1.0 / (Math.pow((i + 1), 2));
             System.out.print("a"+i+"="+a+"\n");
-        } while (a >= e);
+        } while (a >= num);
         System.out.print("N="+i);
     }
 }

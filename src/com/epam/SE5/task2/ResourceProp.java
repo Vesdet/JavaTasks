@@ -2,6 +2,7 @@ package com.epam.SE5.task2;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
+import java.util.Properties;
 import java.util.ResourceBundle;
 
 /**
