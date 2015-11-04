@@ -67,4 +67,8 @@ public class OracleDB {
             e.printStackTrace();
         }
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }

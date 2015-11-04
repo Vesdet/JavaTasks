@@ -1,30 +1,45 @@
 package com.epam.SE10.task2;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Created by Vesdet on 04.11.2015.
  */
 public class Task_2 {
-    public static void main(String[] args) throws SQLException{
+    public static void main(String[] args) throws SQLException {
         OracleDB bd = new OracleDB();
-        Set<Ships> ships = new HashSet<>();
-        Set<Classes> classes = new HashSet<>();
+        Ships ships = new Ships(bd);
+        Classes classes = new Classes(bd);
+        List<Ship> listShips;
+        List<ShipClass> listClasses;
 
-        ships = Ships.executeSelect(bd, "SELECT * FROM Ships WHERE launched < 1915");
-        classes = Classes.executeSelect(bd, "SELECT * FROM Classes");
+        listShips = ships.executeSelect("SELECT * FROM Ships");
+        listClasses = classes.executeSelect("SELECT * FROM Classes WHERE numGuns<10");
 
-        Ships.printSet();
-        Classes.printSet();
+        for (Ship x : listShips) {
+            System.out.println(x);
+        }
+        System.out.println();
 
-        Ships ship = new Ships("Kongo", "Kongo", 1913);
-//        ship.insertInto(bd);
-        ship.deleteFrom(bd);
+        for (ShipClass x : listClasses) {
+            System.out.println(x);
+        }
+        System.out.println();
 
-        ships = Ships.executeSelect(bd, "SELECT * FROM Ships WHERE launched < 1915");
-        Ships.printSet();
+        Ship ship = new Ship("Kongo", "Kongo", 1913);
+       // ships.deleteFrom("Kongo");
+       // ships.insertInto(ship);
+
+        listShips = ships.executeSelect("SELECT * FROM Ships");
+
+        for (Ship x : listShips) {
+            System.out.println(x);
+        }
+        System.out.println();
 
         bd.closeConnection();
     }
