@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lb:library xmlns:lb="http://www.epam.com/se13"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.epam.com/se13 library.xsd">
+    <book id="1">
+        <title>The Minds of Billy Milligan</title>
+        <author>Daniel Keyes</author>
+        <price>526</price>
+        <description>A portrait of a tortured young man, arrested for a series of kidnappings and rapes,
+            explores the world of a multiple personality, whose traumatic childhood shattered his mind
+            into twenty-four distinct personalities.</description>
+    </book>
+    <book id="2">
+        <title>The Picture of Dorian Gray</title>
+        <author>Oscar Wilde</author>
+        <price>350</price>
+        <description>In this celebrated work, his only novel, Wilde forged a devastating portrait of
+            the effects of evil and debauchery on a young aesthete in late-19th-century England. </description>
+    </book>
+    <book id="3">
+        <title></title>
+        <author></author>
+        <price>125</price>
+        <description></description>
+    </book>
+    <book id="4">
+        <title></title>
+        <author></author>
+        <price>334</price>
+        <description></description>
+    </book>
+</lb:library>
